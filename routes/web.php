@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::POST('/controller',[
+    'uses' => 'theadminController@SignUp',
+    'as' => 'SignUp',
+]);

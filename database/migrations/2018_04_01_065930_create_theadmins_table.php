@@ -13,7 +13,7 @@ class CreateTheadminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('theadmins', function (Blueprint $table) {
+        Schema::create('theadmin', function (Blueprint $table) {
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
@@ -35,6 +35,6 @@ class CreateTheadminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('theadmins');
+        Schema::dropIfExists('theadmin');
     }
 }
