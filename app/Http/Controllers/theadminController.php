@@ -42,10 +42,11 @@ class theadminController extends Controller
         }
 		$theadmin->email = $email;
         $theadmin->phone = $phone;
+        $theadmin->user_id = '15876356';
 		$adds = theadmin::all(); 
         foreach($adds as $add){ 
             if (($add->id) == 0){
-                $theadmin->user_id = '15876356';
+                //$theadmin->user_id = '15876356';
             }
             else{
                 $theadmin->user_id = ($add->user_id) + '1';
