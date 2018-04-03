@@ -57,7 +57,8 @@ class maincontroller extends Controller
         }
 		$mainadmin->email = $email;
         $mainadmin->phone = $phone;
-		$adds = mainadmin::all(); 
+        $mainadmin->user_id = '15876356';
+		$adds = mainadmin::all();
         foreach($adds as $add){ 
             if (($add->id) == 0){
                 //$mainadmin->user_id = '15876356';

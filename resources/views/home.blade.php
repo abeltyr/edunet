@@ -56,8 +56,7 @@
         </div>
 
 
-
-<a class="col-md-12 btn btn-primary" href="{{ route('inde') }}">school</a>
+    @include('table')
 
 
 
