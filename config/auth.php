@@ -45,6 +45,14 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'mainad' => [
+            'driver' => 'session',
+            'provider' => 'mainads',
+        ],
+        'thead' => [
+            'driver' => 'session',
+            'provider' => 'theads',
+        ],
     ],
 
     /*
@@ -68,6 +76,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'mainads' => [
+            'driver' => 'eloquent',
+            'model' => App\mainadmin::class,
+        ],
+        'theads' => [
+            'driver' => 'eloquent',
+            'model' => App\theadmin::class,
         ],
 
         // 'users' => [
@@ -96,6 +112,16 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+        'mainads' => [
+            'provider' => 'mainads',
+            'table' => 'password_resets',
+            'expire' => 30,
+        ],
+        'theads' => [
+            'provider' => 'theads',
+            'table' => 'password_resets',
+            'expire' => 30,
         ],
     ],
 

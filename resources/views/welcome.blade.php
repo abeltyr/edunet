@@ -12,68 +12,50 @@
             
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <style>
-            body {
-                padding-top: 40px;
-                padding-bottom: 40px;
-                background-color: #eee;
-            }
-
-            .form-signin {
-                max-width: 330px;
-                padding: 15px;
-                margin: 0 auto;
-            }
-            .form-signin .form-signin-heading,
-            .form-signin .checkbox {
-                margin-bottom: 10px;
-            }
-            .form-signin .checkbox {
-                font-weight: normal;
-            }
-            .form-signin .form-control {
-                position: relative;
-                height: auto;
-                -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-                padding: 10px;
-                font-size: 16px;
-            }
-            .form-signin .form-control:focus {
-                z-index: 2;
-            }
-            .form-signin input[type="email"] {
-                margin-bottom: -1px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-            .form-signin input[type="password"] {
-                margin-bottom: 10px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-        </style>
     </head>
     <body>
-    <div class="container">
-        <form class="form-signin" action="{{ route('SignUp') }}" method="post">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
+    @if(count($errors) > 0)   
+        @foreach($errors->all() as $error)
+            <div class="alert " style="  padding: 20px;  background-color: #f44336; /* Red */ color: white; border-left:6px solid #6b1905;  margin-bottom: 5px;">
+                <span style="margin-left: 15px;  color: white;  font-weight: bold;  float: right;  font-size: 22px;  line-height: 20px;  cursor: pointer;"
+                onclick="this.parentElement.style.display='none';">&times;</span>
+                <p style="color: white; text-align:center;"> {{$error}} </p>
+            </div> 
+        @endforeach 
+        @endif 
+        @if(session('success'))   
+        <div class="alert " style="  padding: 15px;  background-color: #44f436;  border-left:6px solid #0ca120; margin-bottom: 5px;">
+            <span style="margin-left: 15px;  color: white;  font-weight: bold;  float: right;  font-size: 22px;  line-height: 20px;  cursor: pointer;"
+            onclick="this.parentElement.style.display='none';">&times;</span>
+            <p class="sute" > {{session('success')}} </p>
+        </div> 
+        @endif 
+        <div class="container" style="padding:50px" >
+                <form action="{{ route('tSignin') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group form-group-default {{ $errors->has('email') ? ' has-error' : '' }}" id="emailGroup">
+                        <label>E-Mail</label>
+                        <div class="controls">
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="E-Mail" class="form-control" required>
+                         </div>
+                    </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-           {{ csrf_field() }}
-        </form>
-    </div>
-
-
+                    <div class="form-group form-group-default {{ $errors->has('password') ? ' has-error' : '' }}" id="passwordGroup">
+                        <label>Password</label>
+                        <div class="controls">
+                            <input type="password" name="password" placeholder="Password" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-default {{ $errors->has('pin') ? ' has-error' : '' }}" id="pinGroup">
+                        <label>Pin code</label>
+                        <div class="controls">
+                            <input type="password" name="pin" placeholder="Pin code" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn mdc-button--raised btn-primary col-md-offset-4 col-md-4 col-xs-8 col-xs-offset-2 col-sm-8 col-md-offset-2 logas" style="background:#3895ac; font-size:15px;" >
+                        Login
+                    </button>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                </form>
     </body>
 </html>
