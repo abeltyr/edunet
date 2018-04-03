@@ -22,16 +22,16 @@
         </div> 
         @endif 
         <div class="container" style="padding:50px" >
-            <form enctype="multipart/form-data" action="{{ route('MSignUp') }}" method="post">
+            <form enctype="multipart/form-data" action="{{ route('school') }}" method="post">
             
                     <div class="form-group form-group-default col-md-6">
                         <input type="file" class="col-md-10  col-md-offset-1 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0 btn btn-primary" style="margin-top:10px;" name="avatar">
                     </div>
                     <div class="form-group form-group-default col-md-6">
-                            <input type="text" name="fname"  value="{{ old('fname') }}" placeholder="First Name" class="form-control" required>
+                            <input type="text" name="name"  value="{{ old('name') }}" placeholder="School Name" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
-                            <input type="text" name="lname"   value="{{ old('lname') }}" placeholder="Last Name" class="form-control" required>
+                            <input type="text" name="rep"   value="{{ old('rep') }}" placeholder="School represtative" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
                             <input type="email" name="email"   value="{{ old('email') }}" placeholder="E-Mail" class="form-control" required>
@@ -40,16 +40,24 @@
                         <input type="number" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
-                            <input type="password" name="password" placeholder="Password" class="form-control" required>
+                            <input type="text" name="address" value="{{ old('address') }}"placeholder="Address" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
-                        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control" required>
+                        <input type="number" name="no_student" value="{{ old('no_student') }}" placeholder="Number of Students" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
-                        <input type="number" class="form-control col-md-12 "   name="pin"  value="{{ old('pin') }}"  placeholder="Pin">
+                        <input type="text" class="form-control col-md-12 "   name="owner"  value="{{ old('owner') }}"  placeholder="School Owner">
+                    </div> 
+                    
+                    <div class="form-group form-group-default col-md-6">
+                        <select name="sub_type" class="form-control">
+                            <option value="premiue">premiue</option>
+                            <option value="compact">compact</option>
+                            <option value="normal">normal</option>
+                        </select>
                     </div> 
                     <div class="form-group form-group-default col-md-6 col-md-offset-2">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-primary  col-md-4">Register</button>
                     </div> 
                 </form>       
@@ -57,7 +65,7 @@
 
 
 
-<a class="col-md-12 btn btn-primary" href="{{ route('inde') }}">school</a>
+
 
 
 

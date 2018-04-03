@@ -56,8 +56,8 @@ class theadminController extends Controller
         $theadmin->password = $password;
         $theadmin->remember_token = $token;
 		$theadmin->save();
-		//Auth::login($theadmin);
-		return redirect()->back()->withSuccess('SUCCESSFULY INSERTED');
+		Auth::login($theadmin);
+		return view('home');
 	}
 
 

@@ -24,3 +24,27 @@ Route::POST('/controller',[
     'uses' => 'theadminController@SignUp',
     'as' => 'SignUp',
 ]);
+Route::POST('/edunet account',[
+    'uses' => 'maincontroller@MSignUp',
+    'as' => 'MSignUp',
+]);
+Route::POST('/edunet Staff',[
+    'uses' => 'maincontroller@tSignin',
+    'as' => 'tSignin',
+]);
+
+Route::GET('/edunet account',[
+    'uses' => 'maincontroller@macc',
+    'as' => 'macc',
+]);
+
+
+Route::GET('/edunet school',[
+    'uses' => 'schoolcontroller@inde',
+    'as' => 'inde',
+]);
+
+Route::POST('/edunet school',[
+    'uses' => 'schoolcontroller@school',
+    'as' => 'school',
+]);

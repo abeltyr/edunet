@@ -31,37 +31,31 @@
         </div> 
         @endif 
         <div class="container" style="padding:50px" >
-            <form enctype="multipart/form-data" action="{{ route('SignUp') }}" method="post">
-            
-                    <div class="form-group form-group-default col-md-6">
-                        <input type="file" class="col-md-10  col-md-offset-1 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0 btn btn-primary" style="margin-top:10px;" name="avatar">
+                <form action="{{ route('tSignin') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group form-group-default {{ $errors->has('email') ? ' has-error' : '' }}" id="emailGroup">
+                        <label>E-Mail</label>
+                        <div class="controls">
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="E-Mail" class="form-control" required>
+                         </div>
                     </div>
-                    <div class="form-group form-group-default col-md-6">
-                            <input type="text" name="fname"  value="{{ old('fname') }}" placeholder="First Name" class="form-control" required>
-                    </div>
-                    <div class="form-group form-group-default col-md-6">
-                            <input type="text" name="lname"   value="{{ old('lname') }}" placeholder="Last Name" class="form-control" required>
-                    </div>
-                    <div class="form-group form-group-default col-md-6">
-                            <input type="email" name="email"   value="{{ old('email') }}" placeholder="E-Mail" class="form-control" required>
-                    </div>
-                    <div class="form-group form-group-default col-md-6">
-                        <input type="number" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" class="form-control" required>
-                    </div>
-                    <div class="form-group form-group-default col-md-6">
+
+                    <div class="form-group form-group-default {{ $errors->has('password') ? ' has-error' : '' }}" id="passwordGroup">
+                        <label>Password</label>
+                        <div class="controls">
                             <input type="password" name="password" placeholder="Password" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="form-group form-group-default col-md-6">
-                        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control" required>
+                    <div class="form-group form-group-default {{ $errors->has('pin') ? ' has-error' : '' }}" id="pinGroup">
+                        <label>Pin code</label>
+                        <div class="controls">
+                            <input type="password" name="pin" placeholder="Pin code" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="form-group form-group-default col-md-6">
-                        <input type="number" class="form-control col-md-12 "   name="pin"  value="{{ old('pin') }}"  placeholder="Pin">
-                    </div> 
-                    <div class="form-group form-group-default col-md-6 col-md-offset-2">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-primary  col-md-4">Register</button>
-                    </div> 
-                </form>       
-        </div>
+                    <button type="submit" class="btn mdc-button--raised btn-primary col-md-offset-4 col-md-4 col-xs-8 col-xs-offset-2 col-sm-8 col-md-offset-2 logas" style="background:#3895ac; font-size:15px;" >
+                        Login
+                    </button>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                </form>
     </body>
 </html>
