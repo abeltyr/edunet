@@ -38,9 +38,9 @@ class schoolcontroller extends Controller
 		]);
         $school = new school();
 		$adds = school::all(); 
-                $school->school_code = '6356';
         foreach($adds as $add){ 
-            if (!($add->id)){
+            if (($add->id) == 0){
+                $school->school_code = '6356';
             }
             else{
                 $school->school_code = ($add->school_code) + '1';
