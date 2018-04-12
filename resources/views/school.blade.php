@@ -1,10 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-
-
-
-
+<h1>grade</h1>
     @if(count($errors) > 0)   
         @foreach($errors->all() as $error)
             <div class="alert " style="  padding: 20px;  background-color: #f44336; /* Red */ color: white; border-left:6px solid #6b1905;  margin-bottom: 5px;">
@@ -23,12 +17,14 @@
         @endif 
         <div class="container" style="padding:50px" >
             <form enctype="multipart/form-data" action="{{ route('school') }}" method="post">
-            
                     <div class="form-group form-group-default col-md-6">
-                        <input type="file" class="col-md-10  col-md-offset-1 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0 btn btn-primary" style="margin-top:10px;" name="avatar">
+                            <input type="number" name="grade"  value="{{ old('grade') }}" placeholder="Grade" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
-                            <input type="text" name="name"  value="{{ old('name') }}" placeholder="School Name" class="form-control" required>
+                            <input type="number" name="no_sect"  value="{{ old('no_sect') }}" placeholder="Number section" class="form-control" required>
+                    </div>
+                    <div class="form-group form-group-default col-md-6">
+                            <input type="number" name="no_test"  value="{{ old('no_test') }}" placeholder="Number Of Test per year" class="form-control" required>
                     </div>
                     <div class="form-group form-group-default col-md-6">
                             <input type="text" name="rep"   value="{{ old('rep') }}" placeholder="School represtative" class="form-control" required>
@@ -71,11 +67,3 @@
 
 
 
-
-
-
-
-
-
-
-@endsection

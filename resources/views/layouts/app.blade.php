@@ -45,8 +45,9 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::guard('thead')->user()->name }} <span class="caret"></span>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle   btn" style="padding:0px;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="/upload{{ Auth::guard('thead')->user()->avatar}}" style=" width:35px; height:100%; border-radius:50%; margin-right:10px;"/>
+                                    {{ Auth::guard('thead')->user()->firstname }} 
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

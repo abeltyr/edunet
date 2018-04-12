@@ -57,6 +57,7 @@
 
 
     @include('table')
+    @include('school')
 
 
 
