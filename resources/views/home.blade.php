@@ -56,8 +56,9 @@
         </div>
 
 
-    @include('table')
+    include('table')
     @include('school')
+    @include('grade')
 
 
 

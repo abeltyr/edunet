@@ -33,7 +33,7 @@ Route::POST('/edunet Staff',[
     'as' => 'tSignin',
 ]);
 
-Route::GET('/edunet account',[
+Route::GET('/edunet school grade',[
     'uses' => 'maincontroller@macc',
     'as' => 'macc',
 ]);
@@ -47,4 +47,9 @@ Route::GET('/edunet school',[
 Route::POST('/edunet school',[
     'uses' => 'schoolcontroller@school',
     'as' => 'school',
+]);
+
+Route::POST('/edunet school',[
+    'uses' => 'gradecontroller@grade',
+    'as' => 'grade',
 ]);

@@ -19,11 +19,12 @@ class Theadmins extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('avatar')->default('/theadmin/default.jpg');
-            $table->string('user_id')->unique();
+            $table->integer('Role_id')->default('0');
+            $table->integer('user_id')->unique();
             $table->string('email')->unique();
             $table->integer('phone')->unique();
             $table->string('password');
-            $table->string('pin');
+            $table->integer('pin');
             $table->rememberToken();
             $table->timestamps();
         });

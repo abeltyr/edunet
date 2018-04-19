@@ -1,4 +1,4 @@
-<h1>school</h1>
+<h1>grade</h1>
     @if(count($errors) > 0)   
         @foreach($errors->all() as $error)
             <div class="alert " style="  padding: 20px;  background-color: #f44336; /* Red */ color: white; border-left:6px solid #6b1905;  margin-bottom: 5px;">
@@ -16,7 +16,7 @@
         </div> 
         @endif 
         <div class="container" style="padding:50px" >
-            <form enctype="multipart/form-data" action="{{ route('school') }}" method="post">
+            <form enctype="multipart/form-data" action="{{ route('grade') }}" method="post">
                     <div class="form-group form-group-default col-md-6">
                             <input type="number" name="grade"  value="{{ old('grade') }}" placeholder="Grade" class="form-control" required>
                     </div>
